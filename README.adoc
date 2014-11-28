@@ -1,0 +1,23 @@
+= Grain Bootstrap Theme
+
+A theme for the http://sysgears.com/grain/[Grain static site generator] that makes it easy to build your site with http://getbootstrap.com/[Twitter Bootstrap]. This theme is based on the http://sysgears.com/grain/themes/template/[Grain theme template].
+
+== Installation
+
+First, you'll need to install the http://bower.io/[Bower dependency manager] if you don't have it already. This theme uses Bower to download Bootstrap and its SASS source files.
+
+Once you have Bower installed, run this command from the command line to download Bootstrap
+
+ bower install
+
+== Usage
+
+The project uses http://www.gradle.org/[Gradle] and the http://www.gradle.org/docs/current/userguide/gradle_wrapper.html[Gradle wrapper] to build your static site, so you don't have to download and install Gralde. You can just run `gradlew` commands to use the Gradle wrapper and have it automatically downloadand use the correct version of Gradle for you.
+
+To run your site in preview mode with hot-reloading of changes, run
+
+ ./gradlew preview
+
+And to generate your site's for deployment, run
+
+ ./gradlew generate
