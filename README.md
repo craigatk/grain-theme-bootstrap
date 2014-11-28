@@ -1,3 +1,0 @@
-# Grain Bootstrap Theme
-
-
