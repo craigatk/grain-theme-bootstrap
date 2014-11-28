@@ -1,0 +1,41 @@
+---
+layout: default
+title: Grain Theme Template
+published: true
+---
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron">
+                <h1>Welcome to Grain Bootstrap Template</h1>
+
+                <p>
+                    This theme gives you a head start to build your site with <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3>
+                Here is the list of the pages, available on this site:
+            </h3>
+            <ul>
+                <% site.pages.each { %>
+                <li>
+                    <p><strong>url:</strong> <a href="${link it.url}">${site.url}${it.url}</a> <strong>location:</strong> ${it.location}</p>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                Please, refer to the <a href="http://sysgears.com/grain/docs/latest/">Grain documentation</a> for further details.
+            </p>
+        </div>
+    </div>
+</div>
