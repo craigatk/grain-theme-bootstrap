@@ -19,6 +19,8 @@ targetCompatibility = compatibilityVersion
 clean.doLast {
     ant.delete(dir: '.cache')
     ant.delete(dir: 'target')
+
+    ant.delete(dir: 'theme/fonts/vendor')
     ant.delete(dir: 'theme/javascripts/vendor')
     ant.delete(dir: 'theme/sass/vendor')
 }
