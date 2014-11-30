@@ -96,7 +96,6 @@ task generate(type: JavaExec) {
     classpath sourceSets.main.runtimeClasspath
     main = mainClassName
     args name
-    jvmArgs "-Xmx1024M", "-XX:MaxPermSize=512M"
 }
 
 task preview(type: JavaExec) {
@@ -108,24 +107,22 @@ task preview(type: JavaExec) {
 
 task copyBootstrap {
     inputs.file 'bower.json'
-    inputs.dir 'bower-components'
+    inputs.dir 'bower_components/bootstrap'
     outputs.dir 'theme/javascripts/vendor/jquery'
     outputs.dir 'theme/javascripts/vendor/bootstrap'
     outputs.dir 'theme/sass/vendor/bootstrap'
 
-    doLast {
-        copy {
-            from "${bowerComponentsDir}/jquery/dist"
-            into 'theme/javascripts/vendor/jquery'
-        }
-        copy {
-            from "${bowerComponentsDir}/bootstrap/dist/js"
-            into 'theme/javascripts/vendor/bootstrap'
-        }
-        copy {
-            from "${bowerComponentsDir}/bootstrap-sass-official/assets/stylesheets"
-            into 'theme/sass/vendor/bootstrap'
-        }
+    copy {
+        from "${bowerComponentsDir}/jquery/dist"
+        into 'theme/javascripts/vendor/jquery'
+    }
+    copy {
+        from "${bowerComponentsDir}/bootstrap/dist/js"
+        into 'theme/javascripts/vendor/bootstrap'
+    }
+    copy {
+        from "${bowerComponentsDir}/bootstrap-sass-official/assets/stylesheets"
+        into 'theme/sass/vendor/bootstrap'
     }
 }
 
