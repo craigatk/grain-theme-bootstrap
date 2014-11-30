@@ -108,21 +108,30 @@ task preview(type: JavaExec) {
 task copyBootstrap {
     inputs.file 'bower.json'
     inputs.dir 'bower_components/bootstrap'
+    inputs.dir 'bower_components/bootstrap-sass-official'
+
+    outputs.dir 'theme/fonts/vendor/bootstrap'
     outputs.dir 'theme/javascripts/vendor/jquery'
     outputs.dir 'theme/javascripts/vendor/bootstrap'
     outputs.dir 'theme/sass/vendor/bootstrap'
 
-    copy {
-        from "${bowerComponentsDir}/jquery/dist"
-        into 'theme/javascripts/vendor/jquery'
-    }
-    copy {
-        from "${bowerComponentsDir}/bootstrap/dist/js"
-        into 'theme/javascripts/vendor/bootstrap'
-    }
-    copy {
-        from "${bowerComponentsDir}/bootstrap-sass-official/assets/stylesheets"
-        into 'theme/sass/vendor/bootstrap'
+    doLast {
+        copy {
+            from "${bowerComponentsDir}/bootstrap-sass-official/assets/fonts"
+            into 'theme/fonts/vendor'
+        }
+        copy {
+            from "${bowerComponentsDir}/jquery/dist"
+            into 'theme/javascripts/vendor/jquery'
+        }
+        copy {
+            from "${bowerComponentsDir}/bootstrap/dist/js"
+            into 'theme/javascripts/vendor/bootstrap'
+        }
+        copy {
+            from "${bowerComponentsDir}/bootstrap-sass-official/assets/stylesheets"
+            into 'theme/sass/vendor/bootstrap'
+        }
     }
 }
 
